@@ -14,7 +14,7 @@
 header {
   width: 100%;
   height: 6rem;
-  background-color: #0e6b3f;
+  background-color: #B0C4DE;
   display: flex;
   justify-content: center;
   align-items: center;

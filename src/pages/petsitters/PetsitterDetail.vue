@@ -1,5 +1,5 @@
 <template>
-    <p>Info o petsitterze</p>
+    <p>Details for petsitter</p>
 </template>
 
 <script></script>

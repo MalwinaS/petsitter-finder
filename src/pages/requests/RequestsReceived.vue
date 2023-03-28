@@ -1,5 +1,7 @@
 <template>
-<p>Wiadomości</p>
+  <section>
+    <h1>Requests</h1>
+  </section>
 </template>
 
 <script></script>
