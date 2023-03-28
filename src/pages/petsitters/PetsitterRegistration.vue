@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <p>Rejestracja</p>
 </template>
 
 <script></script>
