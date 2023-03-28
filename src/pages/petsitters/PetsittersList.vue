@@ -1,5 +1,10 @@
 <template>
-    <p>Lista petsitterów</p>
+    <section>
+        Filtruj
+    </section>
+    <section>
+        Lista petsitterów
+    </section>
 </template>
 
 <script></script>
