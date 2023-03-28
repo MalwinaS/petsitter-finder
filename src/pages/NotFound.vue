@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <p>Nie znaleziona</p>
+</template>
 
 <script></script>
 

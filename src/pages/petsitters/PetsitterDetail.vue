@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <p>Info o petsitterze</p>
+</template>
 
 <script></script>
 
