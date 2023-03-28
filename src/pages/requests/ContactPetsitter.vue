@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <p>Kontakt</p>
+</template>
 
 <script></script>
 

@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import PetsittersList from "./components/petsitters/PetsittersList.vue";
-import PetsitterDetail from "./components/petsitters/PetsitterDetail.vue";
-import PetsitterRegistration from "./components/petsitters/PetsitterRegistration.vue";
-import ContactPetsitter from "./components/requests/ContactPetsitter.vue";
-import RequestsReceived from "./components/requests/RequestsReceived.vue";
-import NotFound from "./components/NotFound.vue";
+import PetsittersList from "./pages/petsitters/PetsittersList.vue";
+import PetsitterDetail from "./pages/petsitters/PetsitterDetail.vue";
+import PetsitterRegistration from "./pages/petsitters/PetsitterRegistration.vue";
+import ContactPetsitter from "./pages/requests/ContactPetsitter.vue";
+import RequestsReceived from "./pages/requests/RequestsReceived.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
