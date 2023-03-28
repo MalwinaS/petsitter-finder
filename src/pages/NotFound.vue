@@ -1,5 +1,5 @@
 <template>
-    <p>Nie znaleziona</p>
+    <p></p>
 </template>
 
 <script></script>

@@ -18,7 +18,7 @@ const router = createRouter({
       children: [{ path: "contact", component: ContactPetsitter }],
     },
     { path: "/register", component: PetsitterRegistration },
-    { path: "/request", component: RequestsReceived },
+    { path: "/requests", component: RequestsReceived },
     { path: "/:notFound(.*)", component: NotFound },
   ],
 });
