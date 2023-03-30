@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import PetsittersList from "./pages/petsitters/PetsittersList.vue";
-import PetsitterDetail from "./pages/petsitters/PetsitterDetail.vue";
+import PetsitterDetails from "./pages/petsitters/PetsitterDetails.vue";
 import PetsitterRegistration from "./pages/petsitters/PetsitterRegistration.vue";
 import ContactPetsitter from "./pages/requests/ContactPetsitter.vue";
 import RequestsReceived from "./pages/requests/RequestsReceived.vue";
@@ -14,7 +14,7 @@ const router = createRouter({
     { path: "/petsitters", component: PetsittersList },
     {
       path: "/petsitters/:id",
-      component: PetsitterDetail,
+      component: PetsitterDetails,
       children: [{ path: "contact", component: ContactPetsitter }],
     },
     { path: "/register", component: PetsitterRegistration },
