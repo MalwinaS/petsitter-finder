@@ -15,6 +15,7 @@ const router = createRouter({
     {
       path: "/petsitters/:id",
       component: PetsitterDetails,
+      props: true,
       children: [{ path: "contact", component: ContactPetsitter }],
     },
     { path: "/register", component: PetsitterRegistration },
