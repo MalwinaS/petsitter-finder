@@ -6,7 +6,7 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/register">Register as Petsitter</base-button>
+        <base-button link to="/register" v-if="!isPetsitter">Register as Petsitter</base-button>
       </div>
       <ul v-if="hasPetsitters">
         <petsitter-item
@@ -49,12 +49,11 @@ export default {
       return petsitters.filter((petsitter) => {
         if (this.activeFilters.dog && petsitter.areas.includes("dog")) {
           return true;
-        } if (this.activeFilters.cat && petsitter.areas.includes("cat")) {
+        }
+        if (this.activeFilters.cat && petsitter.areas.includes("cat")) {
           return true;
-        } if (
-          this.activeFilters.hamster &&
-          petsitter.areas.includes("hamster")
-        ) {
+        }
+        if (this.activeFilters.hamster && petsitter.areas.includes("hamster")) {
           return true;
         }
         return false;
@@ -62,6 +61,9 @@ export default {
     },
     hasPetsitters() {
       return this.$store.getters["petsitters/hasPetsitters"];
+    },
+    isPetsitter() {
+      return this.$store.getters["petsitters/isPetsitter"];
     },
   },
   methods: {
