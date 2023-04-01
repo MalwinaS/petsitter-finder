@@ -2,7 +2,6 @@
   <section>
     <petsitter-filter @change-filter="setFilters"></petsitter-filter>
   </section>
-  s
   <section>
     <base-card>
       <div class="controls">
