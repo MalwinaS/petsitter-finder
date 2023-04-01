@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitForm  ">
+  <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="firstname">Firstname</label>
       <input type="text" id="firstname" v-model.trim="firstName" />
@@ -42,7 +42,8 @@
 
 <script>
 export default {
-    name: 'petsitter-form',
+  emits: ["save-data"],
+  name: "petsitter-form",
   data() {
     return {
       firstName: "",
@@ -61,7 +62,7 @@ export default {
         rate: this.rate,
         areas: this.areas,
       };
-      console.log(formData)
+      this.$emit("save-data", formData);
     },
   },
 };
@@ -96,7 +97,7 @@ input:focus,
 textarea:focus {
   background-color: #f0e6fd;
   outline: none;
-  border-color: #f5b44d;;
+  border-color: #f5b44d;
 }
 
 input[type="checkbox"] {
