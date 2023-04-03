@@ -1,5 +1,10 @@
 <template>
-    <p>The website doesn't exit</p>
+    <section>
+    <base-card>
+    <h2>Page not found</h2>
+    <p>This page couldn't be found, please check out our <router-link to="/petsitters">petsitters</router-link></p>
+</base-card>
+</section>
 </template>
 
 <script></script>
