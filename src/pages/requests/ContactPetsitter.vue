@@ -1,4 +1,5 @@
 <template>
+    <base-card>
   <form @submit.prevent="submitForm">
     <div>
       <label for="email">Your e-mail</label>
@@ -15,6 +16,7 @@
       <base-button>Send message</base-button>
     </div>
   </form>
+</base-card>
 </template>
 
 <script>
@@ -37,6 +39,12 @@ export default {
         this.formIsValid = false;
         return;
       }
+      this.$store.dispatch("requests/contactPetsitter", {
+        email: this.email,
+        message: this.message,
+        petsitterId: this.$route.params.id,
+      });
+      this.$router.replace('/petsitters')
     },
   },
 };
@@ -58,6 +66,7 @@ label {
   font-weight: bold;
   margin-bottom: 0.5rem;
   display: block;
+  margin-top: 10px;
 }
 
 input,
@@ -67,6 +76,7 @@ textarea {
   font: inherit;
   border: 1px solid #f5b44d;
   padding: 0.15rem;
+  margin-top: 10px;
 }
 
 input:focus,
@@ -83,5 +93,6 @@ textarea.focus {
 
 .actions {
   text-align: center;
+  margin-top: 15px;
 }
 </style>

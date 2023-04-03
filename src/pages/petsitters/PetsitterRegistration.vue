@@ -15,7 +15,7 @@ export default {
   methods: {
     saveData(data) {
       this.$store.dispatch("petsitters/registerPetsitter", data);
-      this.$routee.replace("/petsitters");
+      this.$router.replace("/petsitters");
     },
   },
 };
