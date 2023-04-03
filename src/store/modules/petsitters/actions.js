@@ -1,5 +1,6 @@
 export default {
-  registerPetsitter(context, data) {
+  async registerPetsitter(context, data) {
+    const userId = context.rootGetters.userId;
     const petsitterData = {
       id: context.rootGetters.userId,
       firstName: data.first,
@@ -8,6 +9,22 @@ export default {
       dailyRate: data.rate,
       areas: data.areas,
     };
-    context.commit("registerPetsitter", petsitterData);
+
+    const response = await fetch(
+      `https://petsitter-finder-default-rtdb.firebaseio.com/petsitters/${userId}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(petsitterData),
+      }
+    );
+
+    if (!response.ok) {
+      //error..
+    }
+
+    context.commit("registerPetsitter", {
+      ...petsitterData,
+      id: userId,
+    });
   },
 };
