@@ -5,7 +5,7 @@ export default {
       firstName: data.first,
       lastName: data.last,
       description: data.desc,
-      hourlyRate: data.rate,
+      dailyRate: data.rate,
       areas: data.areas,
     };
 
@@ -47,7 +47,7 @@ export default {
         firstName: responseData[key].firstName,
         lastName: responseData[key].lastName,
         description: responseData[key].description,
-        hourlyRate: responseData[key].hourlyRate,
+        dailyRate: responseData[key].dailyRate,
         areas: responseData[key].areas,
       };
       petsitters.push(petsitter);
