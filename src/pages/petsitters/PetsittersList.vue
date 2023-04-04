@@ -5,12 +5,17 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline" @click="loadPetsitters">Refresh</base-button>
-        <base-button link to="/register" v-if="!isPetsitter"
+        <base-button mode="outline" @click="loadPetsitters"
+          >Refresh</base-button
+        >
+        <base-button link to="/register" v-if="!isPetsitter && !isLoading"
           >Register as Petsitter</base-button
         >
       </div>
-      <ul v-if="hasPetsitters">
+      <div v-if="isLoading">
+        <base-spinner></base-spinner>
+      </div>
+      <ul v-else-if="hasPetsitters">
         <petsitter-item
           v-for="petsitter in filteredPetsitters"
           :key="petsitter.id"
@@ -38,6 +43,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       activeFilters: {
         dog: true,
         cat: true,
@@ -62,7 +68,7 @@ export default {
       });
     },
     hasPetsitters() {
-      return this.$store.getters["petsitters/hasPetsitters"];
+      return !this.isLoading && this.$store.getters["petsitters/hasPetsitters"];
     },
     isPetsitter() {
       return this.$store.getters["petsitters/isPetsitter"];
@@ -75,8 +81,10 @@ export default {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    loadPetsitters() {
-      this.$store.dispatch("petsitters/loadPetsitters");
+    async loadPetsitters() {
+      this.isLoading = true;
+      await this.$store.dispatch("petsitters/loadPetsitters");
+      this.isLoading = false;
     },
   },
 };
