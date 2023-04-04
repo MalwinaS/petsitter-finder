@@ -5,8 +5,10 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/register" v-if="!isPetsitter">Register as Petsitter</base-button>
+        <base-button mode="outline" @click="loadPetsitters">Refresh</base-button>
+        <base-button link to="/register" v-if="!isPetsitter"
+          >Register as Petsitter</base-button
+        >
       </div>
       <ul v-if="hasPetsitters">
         <petsitter-item
@@ -66,9 +68,15 @@ export default {
       return this.$store.getters["petsitters/isPetsitter"];
     },
   },
+  created() {
+    this.loadPetsitters();
+  },
   methods: {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
+    },
+    loadPetsitters() {
+      this.$store.dispatch("petsitters/loadPetsitters");
     },
   },
 };
