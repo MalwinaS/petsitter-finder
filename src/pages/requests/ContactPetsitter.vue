@@ -45,6 +45,7 @@ export default {
         petsitterId: this.$route.params.id,
       });
       this.$router.replace("/petsitters");
+      
     },
   },
 };

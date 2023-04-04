@@ -1,11 +1,14 @@
 <template>
+  <base-dialog :show="!!error" title="Error ocurred" @close="handleError">
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <petsitter-filter @change-filter="setFilters"></petsitter-filter>
   </section>
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline" @click="loadPetsitters"
+        <base-button mode="outline" @click="loadPetsitters(true)"
           >Refresh</base-button
         >
         <base-button link to="/register" v-if="!isPetsitter && !isLoading"
@@ -44,6 +47,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      error: null,
       activeFilters: {
         dog: true,
         cat: true,
@@ -83,8 +87,15 @@ export default {
     },
     async loadPetsitters() {
       this.isLoading = true;
-      await this.$store.dispatch("petsitters/loadPetsitters");
+      try {
+        await this.$store.dispatch("petsitters/loadPetsitters");
+      } catch (error) {
+        this.error = error.message || "Something went wrong";
+      }
       this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
     },
   },
 };
