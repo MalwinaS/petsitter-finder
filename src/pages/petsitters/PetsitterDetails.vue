@@ -35,6 +35,11 @@ export default {
       selectedPetsitter: null,
     };
   },
+  created() {
+    this.selectedPetsitter = this.$store.getters["petsitters/petsitters"].find(
+      (petsitter) => petsitter.id === this.id
+    );
+  },
   computed: {
     fullName() {
       return this.selectedPetsitter.firstName + " " + this.selectedPetsitter.lastName;
@@ -51,11 +56,6 @@ export default {
     contactLink() {
       return this.$route.path + "/" + this.id + "/contact";
     },
-  },
-  created() {
-    this.selectedPetsitter = this.$store.getters["petsitters/petsitters"].find(
-      (petsitter) => petsitter.id === this.id
-    );
   },
 };
 </script>
