@@ -27,4 +27,27 @@ export default {
       id: userId,
     });
   },
+  async loadPetsitters(context) {
+    const response = await fetch(
+      `https://petsitter-finder-default-rtdb.firebaseio.com/petsitters.json`
+    );
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      //error
+    }
+    const petsitters = [];
+    for (const key in responseData) {
+      const petsitter = {
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        description: responseData[key].description,
+        dailyRate: responseData[key].dailyRate,
+        areas: responseData[key].areas,
+      };
+      petsitters.push(petsitter);
+    }
+    context.commit('setPetsitters', petsitters)
+  },
 };
