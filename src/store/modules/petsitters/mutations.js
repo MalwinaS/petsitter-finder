@@ -5,4 +5,7 @@ export default {
   setPetsitters(state, payload) {
     state.petsitters = payload;
   },
+  setFetchTimeStamp(state) {
+    state.lastFetch = new Date().getTime()
+  }
 };

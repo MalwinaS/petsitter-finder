@@ -85,10 +85,10 @@ export default {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },
-    async loadPetsitters() {
+    async loadPetsitters(refresh = false) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch("petsitters/loadPetsitters");
+        await this.$store.dispatch("petsitters/loadPetsitters", {forceRefresh: refresh});
       } catch (error) {
         this.error = error.message || "Something went wrong";
       }

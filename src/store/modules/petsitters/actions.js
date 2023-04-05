@@ -28,7 +28,11 @@ export default {
       id: userId,
     });
   },
-  async loadPetsitters(context) {
+  async loadPetsitters(context, payload) {
+    if (payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
+
     const response = await fetch(
       `https://petsitter-finder-default-rtdb.firebaseio.com/petsitters.json`
     );
@@ -54,5 +58,6 @@ export default {
     }
 
     context.commit("setPetsitters", petsitters);
+    context.commit("setFetchTimeStamp");
   },
 };
