@@ -1,11 +1,10 @@
 <template>
-  <base-card>
     <form @submit.prevent="submitForm">
-      <div>
+      <div class="form-control">
         <label for="email">Your e-mail</label>
         <input type="email" id="email" v-model.trim="email" />
       </div>
-      <div>
+      <div class="form-control">
         <label for="message">Message</label>
         <textarea rows="6" id="message" v-model.trim="message"></textarea>
       </div>
@@ -16,7 +15,6 @@
         <base-button>Send message</base-button>
       </div>
     </form>
-  </base-card>
 </template>
 
 <script>
