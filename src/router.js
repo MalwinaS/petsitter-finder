@@ -11,7 +11,6 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/petsitters" },
-    { path: "/petsitter-finder", redirect: "/petsitters" },
     { path: "/petsitters", component: PetsittersList },
     {
       path: "/petsitters/:id",
