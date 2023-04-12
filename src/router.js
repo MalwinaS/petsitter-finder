@@ -10,10 +10,10 @@ import NotFound from "./pages/NotFound.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", redirect: "/petsitters" },
-    { path: "/petsitters", component: PetsittersList },
+    { path: "/", redirect: "/petsitter-finder" },
+    { path: "/petsitter-finder", component: PetsittersList },
     {
-      path: "/petsitters/:id",
+      path: "/petsitter-finder/:id",
       component: PetsitterDetails,
       props: true,
       children: [{ path: "contact", component: ContactPetsitter }],
