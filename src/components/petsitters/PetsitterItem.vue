@@ -27,10 +27,10 @@ export default {
       return this.firstName + " " + this.lastName;
     },
     petsitterContactLink() {
-      return this.$route.path + "/" + this.id + "/contact";
+      return this.$route.path + this.id + "/contact";
     },
     petsitterDetailsLink() {
-      return this.$route.path + "/" + this.id;
+      return this.$route.path + this.id;
     },
   },
 };
