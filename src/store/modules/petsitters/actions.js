@@ -10,7 +10,7 @@ export default {
     };
 
     const response = await fetch(
-      `https://petsitter-finder-default-rtdb.firebaseio.com/petsitters/${userId}.json`,
+      `https://petsitter-d593a-default-rtdb.firebaseio.com/petsitters/${userId}.json`,
       {
         method: "PUT",
         body: JSON.stringify(petsitterData),
@@ -34,7 +34,7 @@ export default {
     }
 
     const response = await fetch(
-      `https://petsitter-finder-default-rtdb.firebaseio.com/petsitters.json`
+      `https://petsitter-d593a-default-rtdb.firebaseio.com/petsitters.json`
     );
     const responseData = await response.json();
 

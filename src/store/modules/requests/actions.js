@@ -5,7 +5,7 @@ export default {
       message: payload.message,
     };
     const response = await fetch(
-      `https://petsitter-finder-default-rtdb.firebaseio.com/requests/${payload.petsitterId}.json`,
+      `https://petsitter-d593a-default-rtdb.firebaseio.com/requests/${payload.petsitterId}.json`,
       {
         method: "POST",
         body: JSON.stringify(newRequest),
@@ -30,7 +30,7 @@ export default {
     const petsitterId = context.rootGetters.userId;
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://petsitter-finder-default-rtdb.firebaseio.com/requests/${petsitterId}.json?auth=` +
+      `https://petsitter-d593a-default-rtdb.firebaseio.com/requests/${petsitterId}.json?auth=` +
         token
     );
     const responseData = await response.json();
